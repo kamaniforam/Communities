@@ -1,0 +1,52 @@
+// buttontransition {
+//   background-color: var(--mid1) !important;
+//   cursor: pointer;
+//   color: var(--text) !important;
+//   transition: background 500ms ease-in-out, color 800ms ease-in-out,
+//     border 500ms ease-in-out;
+
+//   border: 1px solid var(--mid2) !important;
+//   border-radius: 5px !important;
+//   :focus {
+//     border: 1px solid var(--accent) !important;
+//   }
+
+//   &:hover {
+//     background-color: var(--accent) !important;
+//   }
+// }
+
+// .onboard-form-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: white;
+//   width: 60%;
+//   margin-top: 20px;
+// }
+
+// .onboard-form {
+//   margin: 20px 10px;
+
+//   border-radius: 1px;
+//   font-size: 14px;
+//   width: 70% !important;
+//   height: 38px !important;
+
+//   &:focus {
+//     outline: none;
+//     box-shadow: none;
+//     border: none;
+//   }
+
+//   .profImg {
+//   }
+// }
+
+// .onbtn {
+//   @extend buttontransition;
+//   padding: 140px;
+//   background-color: var(--mid1) !important;
+//   cursor: pointer;
+//   margin-left: 80px;
+// }

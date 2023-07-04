@@ -1,0 +1,211 @@
+.form-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(170, 170, 170, 0.055);
+    backdrop-filter: blur(3px); /* Apply a blur filter to the background */
+    z-index: 1;
+}
+
+// form structure
+.FormPost{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 550px;
+    height: auto;
+    left: 410px;
+    top: 50px; 
+    border-radius: 6px;
+    background-color: var(--primary);
+    box-shadow: 1px 1px 7px 1px rgba(214, 214, 214, 0.344);
+
+}
+
+// form header
+.form-header{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.form-header>p{
+    margin-right: 100px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--text);
+}
+
+
+// form close button
+.form-close{
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text);
+    padding-top: 4px;
+    margin-left: 100px;
+    margin-top: 4px;
+    background-color: var(--primary);
+}
+.form-close:hover{
+    color: var(--accent);
+}
+line{
+    border: 0.5px solid var(--mid2);
+    width: 100%;
+    margin: 0;
+  }
+// user details
+  .form-header-info{
+    height: 40px;
+    display: flex;
+   
+}
+
+.form-header-info>img{
+    width: 40px;
+    height: 40px;
+    background-color: blue;
+    margin: 0 6px;
+    border-radius: 50%;
+}
+.form-header-info>h4{
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0;
+    padding-left: 5px;
+}
+
+
+
+.form-header-info,.form-body,.form-footer{
+    margin: 10px;
+}
+
+// form body
+
+// for Address
+.Address-field,.price-field,.upload-Img{
+    margin: 0 10px;
+}
+.Address-field>p{
+    margin: 0;
+    text-align: left;
+    padding: 5px;
+    font-size: 14px;
+    color: var(--text);
+}
+.Address-field>input{
+    width: 495px;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 6px;
+    border: 1px solid var(--mid1);
+    background-color: var(--mid1);
+}
+
+// price field
+.price-field>p{
+    margin: 0;
+    text-align: left;
+    padding: 5px;
+    font-size: 14px;
+    color: var(--text);
+}
+.price-field>input{
+    width: 150px;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 6px;
+    border: 1px solid var(--mid1);
+    background-color: var(--mid1);
+}
+input:hover{
+    border: 1px solid var(--accent);
+}
+
+// image field
+.upload-Img{
+    margin-top: 10px;
+    display: flex;
+    justify-content: right;
+    align-items: baseline;
+}
+
+.textarea{
+    resize: none;
+    margin: 5px 10px;;
+    height: 80px;
+    width: 490px;
+    padding: 10px;
+    background-color: var(--mid1);
+    border: none;
+    border-radius: 6px;
+}
+// upload image
+.upload-Img>p{
+    margin: 0 10px;
+    font-size: 14px;
+    color: var(--text);
+}
+.upload-Img>button{
+    border: 1px solid var(--mid1);
+    border-radius: 6px;
+    padding: 5px;
+    color: var(--text-muted);
+    background-color: var(--mid1);
+}
+.upload-Img>button:hover{
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+// poll section
+.poll-options{
+    display: flex;
+    flex-direction: column;
+}
+.poll-options>p{
+    text-align: left;
+    font-size: 14px;
+    margin: 5px 10px;
+}
+.poll-options> input{
+    margin: 5px 10px;
+    padding: 4px;
+   font-weight: 500;
+   border-radius: 6px;
+   border: 1px solid var(--mid1);
+   background-color: var(--mid1);
+  }
+  .poll-options> input:hover{
+   
+   border: 1px solid var(--accent);
+  }
+
+// form footer
+.form-footer{
+    width: 520px;
+    margin: 10px 0px;
+}
+.postBtn{
+   margin-left: 15px;
+    padding: 5px 0;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--accent);
+    letter-spacing: 1px;
+ width: 100%;
+ background-color: var(--mid1);
+}
+.postBtn:hover{
+    background-color: var(--accent);
+    color: var(--primary);
+    
+}

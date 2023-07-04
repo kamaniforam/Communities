@@ -1,0 +1,96 @@
+buttontransition {
+  border: 1px solid var(--mid2);
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 10px;
+  width: 150px;
+  background-color: var(--accent) !important;
+  color: var(--text);
+  transition: background 500ms ease-in-out, color 800ms ease-in-out,
+    border 500ms ease-in-out;
+
+  ::placeholder {
+    color: var(--text-muted);
+  }
+
+  :focus {
+    border: 1px solid var(--accent);
+  }
+}
+
+.card-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headcard {
+  display: flex;
+  border: 0px !important;
+  background-color: var(--mid1) !important;
+  color: var(--text);
+  margin: 32px;
+  width: 600px;
+
+  transition: background 500ms ease-in-out, color 800ms ease-in-out;
+
+  .comtitle {
+    color: var(--text-muted);
+  }
+
+  .cardButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+
+    .cardButton {
+      flex: 1;
+      padding: 16px 0px;
+      border-top: 2px solid var(--mid2);
+      cursor: pointer;
+      transition: border 500ms ease-in-out;
+
+      &:hover {
+        background-color: var(--mid2);
+      }
+    }
+
+    .cardButton:nth-of-type(2) {
+      border-left: 2px solid var(--mid2);
+      border-right: 2px solid var(--mid2);
+    }
+  }
+  .join {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    .schooltype {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 10px;
+      .mutetxt {
+        margin: 20px;
+      }
+
+      .badge-primary {
+        background-color: var(--accent);
+        color: #fff;
+        text-transform: capitalize;
+        font-weight: 500;
+      }
+    }
+    .jc {
+      .joincomm {
+        @extend buttontransition;
+
+        &:hover {
+          background-color: var(--mid1) !important;
+        }
+      }
+    }
+  }
+}

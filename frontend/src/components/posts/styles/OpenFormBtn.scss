@@ -1,0 +1,14 @@
+.open-form-btn {
+    width: 100px;
+    height: 25px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--mid2);
+    font-size: 12px;
+    text-align: center;
+    color: var(--text-muted);   
+    font-weight: 500;
+}
+.open-form-btn:hover{
+    color: var(--accent); 
+}

@@ -1,0 +1,78 @@
+buttontransition {
+  border: 1px solid var(--mid2);
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 10px;
+  width: 95%;
+  background-color: var(--mid1);
+  color: var(--text);
+  transition: background 500ms ease-in-out, color 800ms ease-in-out,
+    border 500ms ease-in-out;
+
+  ::placeholder {
+    color: var(--text-muted);
+  }
+
+  :focus {
+    border: 1px solid var(--accent);
+  }
+}
+
+transition {
+  border: 1px solid var(--mid2);
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 10px;
+  width: 95%;
+  background-color: var(--mid1);
+  color: var(--text);
+  transition: background 500ms ease-in-out, color 800ms ease-in-out,
+    border 500ms ease-in-out;
+
+  ::placeholder {
+    color: var(--text-muted);
+  }
+
+  :focus {
+    border: 1px solid var(--accent);
+  }
+}
+
+.update {
+  display: flex;
+  margin-left: 220px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.update-form {
+  justify-content: center;
+  margin-bottom: 10px !important;
+}
+
+.auth-form {
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    @extend transition;
+    border: 1px solid var(--mid2);
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px;
+    // width: 150%;
+  }
+}
+
+.updateBtn {
+  @extend buttontransition;
+  border: 1px solid var(--mid2);
+  border-radius: 5px;
+  // width: 150%;
+  padding: 15px !important;
+}
+
+.formwrapper {
+  padding: 30px;
+  text-align: center;
+  width: 400px;
+}

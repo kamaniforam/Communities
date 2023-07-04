@@ -1,0 +1,67 @@
+// create community- right pane
+transition {
+  background-color: var(--mid1) !important;
+  color: var(--text);
+  transition: background 500ms ease-in-out, color 800ms ease-in-out,
+    border 500ms ease-in-out;
+
+  ::placeholder {
+    color: var(--text-muted);
+  }
+
+  :focus {
+    border: 1px solid var(--accent);
+  }
+}
+
+buttontransition {
+  background-color: var(--mid1) !important;
+  cursor: pointer;
+  color: var(--text) !important;
+  transition: background 500ms ease-in-out, color 800ms ease-in-out,
+    border 500ms ease-in-out;
+
+  border: 1px solid var(--mid2) !important;
+  border-radius: 5px !important;
+  :focus {
+    border: 1px solid var(--accent) !important;
+  }
+
+  &:hover {
+    background-color: var(--accent) !important;
+  }
+}
+
+.form {
+  width: 650px;
+  margin: 50px 200px;
+}
+
+.commtitle {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.dropdown {
+  @extend transition;
+  border: 1px solid var(--mid2);
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 14px;
+  padding: 10px;
+  width: 95%;
+}
+
+.comm {
+  @extend buttontransition;
+  margin-top: 20px;
+  padding: 15px !important;
+  width: 95%;
+}
+
+.create {
+  margin: 10px 15px;
+  padding: 12px;
+  width: 95%;
+}

@@ -1,0 +1,19 @@
+.searchBar {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  margin: 20px;
+  background-color: var(--mid2);
+  transition: background 500ms ease-in-out;
+
+  .icon {
+    border: none;
+    color: var(--text);
+    background-color: transparent !important;
+    transition: color 800ms ease-in-out;
+  }
+  .searchInput {
+    all: unset;
+  }
+}

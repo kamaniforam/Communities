@@ -1,0 +1,657 @@
+openapi: "3.0.2"
+info:
+  title: Communities
+  description: Communities API for INFO 6150 final project based on the OpenAPI 3.0 specification.
+  version: 1.0.0
+tags:
+  - name: health check
+    description: Check API status
+  - name: user
+    description: User endpoints
+  - name: community
+    description: Communities for users to join
+  - name: post
+    description: posts created by users in a community
+paths:
+  /healthz:
+    get:
+      tags:
+        - health check
+      operationId: healthz
+      responses:
+        "200":
+          description: Always returns a 200 response to check API health
+  /user:
+    post:
+      tags:
+        - user
+      summary: Create a new user
+      requestBody:
+        description: Required information to create a new user account
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: Bad Request
+    put:
+      tags:
+        - user
+      summary: Update user profile
+      description: (Complete update) the currently logged in user's profile
+      requestBody:
+        description: Required information to update a user account
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: Bad Request
+    patch:
+      tags:
+        - user
+      summary: Update user profile
+      description: (Partially update) the currently logged in user's profile
+      requestBody:
+        description: Required information to update a user account
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: Bad Request
+  /user/{id}:
+    get:
+      tags:
+        - user
+      summary: Fetch a user profile
+      operationId: getUserById
+      parameters:
+        - name: id
+          in: path
+          description: ID of the user to return
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: Bad Request - No user id provided
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden - Requesting user does not have access to this data
+        "404":
+          description: User Not Found
+  /users:
+    get:
+      tags:
+        - user
+      summary: Search users
+      parameters:
+        - name: name
+          in: query
+          description: Search users by name
+          schema:
+            type: string
+        - name: address
+          in: query
+          description: Search users by address
+          schema:
+            type: string
+        - name: school
+          in: query
+          description: Search users by school
+          schema:
+            type: string
+        - name: company
+          in: query
+          description: Search users by company
+          schema:
+            type: string
+        - name: search
+          in: query
+          description: Search users by a search term
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Community"
+        "400":
+          description: Bad Request - No community id provided
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden - Requesting user does not have access to this data
+        "404":
+          description: User Not Found
+
+  /community:
+    post:
+      tags:
+        - community
+      summary: Create a new community
+      operationId: createCommunity
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Community"
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+  /communities:
+    get:
+      tags:
+        - community
+      summary: Search communities
+      parameters:
+        - name: name
+          in: query
+          description: Search communities by name
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: Search communities by type
+          schema:
+            type: string
+        - name: search
+          in: query
+          description: Search communities by a search term. Search will be executed in community name and description
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Community"
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden - Requesting user does not have access to this data
+        "404":
+          description: Community Not Found
+  /community/{id}:
+    get:
+      tags:
+        - community
+      summary: Get community by id
+      parameters:
+        - name: id
+          in: path
+          description: ID of the community to return
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Community"
+        "400":
+          description: Bad Request - No community id provided
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden - Requesting user does not have access to this data
+        "404":
+          description: Community Not Found
+    patch:
+      tags:
+        - community
+      summary: Update community details
+      parameters:
+        - name: id
+          in: path
+          description: ID of the community to return
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        description: Required information to update a community
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Community"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Community"
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden - Requesting user does not have access to this data
+        "404":
+          description: Community Not Found
+    delete:
+      tags:
+        - community
+      summary: Delete community by id
+      operationId: deleteCommunityById
+      parameters:
+        - name: id
+          in: path
+          description: ID of the community to delete
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "204":
+          description: Success - No Content
+        "400":
+          description: Bad Request - No community id provided
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden - Requesting user does not have access to this data
+        "404":
+          description: Post Not Found
+  /post:
+    post:
+      tags:
+        - post
+      summary: Create a new post
+      operationId: createPost
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+  /posts:
+    get:
+      tags:
+        - post
+      summary: Search Posts
+      parameters:
+        - name: author_id
+          in: query
+          description: Search posts by author_id
+          schema:
+            type: string
+        - name: community_id
+          in: query
+          description: Search posts by community_id
+          schema:
+            type: string
+        - name: search
+          in: query
+          description: Search posts by a search term.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Post"
+        "400":
+          description: Bad Request - No community id provided
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden - Requesting user does not have access to this data
+        "404":
+          description: Community Not Found
+  /post/{id}:
+    get:
+      tags:
+        - post
+      summary: Get post by id
+      operationId: getPostById
+      parameters:
+        - name: id
+          in: path
+          description: ID of the post to return
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+        "400":
+          description: Bad Request - No post id provided
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden - Requesting user does not have access to this data
+        "404":
+          description: Post Not Found
+    patch:
+      tags:
+        - post
+      summary: Update post by id
+      operationId: updatePostById
+      parameters:
+        - name: id
+          in: path
+          description: ID of the post to update
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        description: Required information to update a post
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Post"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden - Requesting user does not have access to this data
+        "404":
+          description: Post Not Found
+    delete:
+      tags:
+        - post
+      summary: Delete post by id
+      operationId: deletePostById
+      parameters:
+        - name: id
+          in: path
+          description: ID of the post to delete
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "204":
+          description: Success - No Content
+        "400":
+          description: Bad Request - No post id provided
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden - Requesting user does not have access to this data
+        "404":
+          description: Post Not Found
+
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - id
+        - name
+        - email
+        - password
+        - phone
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 3f786c9b-f376-4fc3-bbc9-8d4027a50586
+          readOnly: true
+        name:
+          type: string
+          example: Karan Wadhwa
+        email:
+          type: string
+          format: email
+          example: wadhwa.k@northeastern.edu
+        password:
+          type: string
+          example: P@ssw0rd
+          writeOnly: true
+        phone:
+          type: string
+          example: 6171234567
+        address:
+          type: string
+          example: 12 Park St, Boston, MA
+        school:
+          type: string
+          example: Northeastern University
+        company:
+          type: string
+          example: Microsoft
+        createdAt:
+          type: string
+          format: date-time
+          example: "2023-03-24T09:12:33.001Z"
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2023-03-24T09:12:33.001Z"
+          readOnly: true
+
+    Post:
+      required:
+        - id
+        - type
+        - community_id
+        - author_id
+        - text
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 3f786c9b-f376-4fc3-bbc9-8d4027a50586
+          readOnly: true
+        type:
+          type: string
+          enum:
+            - post
+            - event
+            - poll
+            - marketplace
+          example: event
+        community_id:
+          type: string
+          format: uuid
+        author_id:
+          type: string
+          format: uuid
+        text:
+          type: string
+        images:
+          type: array
+          items:
+            type: string
+        location:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+          example: "2023-03-24T09:12:33.001Z"
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2023-03-24T09:12:33.001Z"
+          readOnly: true
+
+    EventPost:
+      allOf:
+        - $ref: "#/components/schemas/Post"
+      required:
+        - title
+        - max_capacity
+        - location
+      properties:
+        title:
+          type: string
+        max_capacity:
+          type: integer
+          minimum: 0
+          example: 25
+        rsvp:
+          type: array
+          items:
+            type: string
+    PollPost:
+      allOf:
+        - $ref: "#/components/schemas/Post"
+      required:
+        - options
+      properties:
+        options:
+          type: array
+          items:
+            type: object
+            required:
+              - value
+              - votes
+            properties:
+              value:
+                type: string
+                example: Option 1
+              votes:
+                type: array
+                description: array of user ids
+                items:
+                  type: string
+                  example: user-id
+    MarketplacePost:
+      allOf:
+        - $ref: "#/components/schemas/Post"
+      required:
+        - price
+        - image
+        - location
+      properties:
+        price:
+          type: number
+          minimum: 0
+    Community:
+      type: object
+      required:
+        - id
+        - name
+        - type
+        - private
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 3f786c9b-f376-4fc3-bbc9-8d4027a50586
+          readOnly: true
+        name:
+          type: string
+          example: Northeastern University
+        type:
+          type: string
+          enum: ["school", "company", "organization", "interest", "neighborhood", "club"]
+          example: school
+        description:
+          type: string
+        private:
+          type: boolean
+          default: false
+          example: false
+        members:
+          type: array
+          description: Array of User ids
+          items:
+            type: string
+            format: uuid
+        moderators:
+          type: array
+          description: Array of User ids
+          items:
+            type: string
+            format: uuid
+        waitlist:
+          type: array
+          description: Array of User ids
+          items:
+            type: string
+            format: uuid
+        posts:
+          type: array
+          description: Array of post ids
+          items:
+            type: string
+            format: uuid
+        createdAt:
+          type: string
+          format: date-time
+          example: "2023-03-24T09:12:33.001Z"
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2023-03-24T09:12:33.001Z"
+          readOnly: true

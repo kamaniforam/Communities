@@ -1,0 +1,3 @@
+@mixin theme-transition {
+  transition: background 500ms ease-in-out, color 1000ms ease-in-out;
+}

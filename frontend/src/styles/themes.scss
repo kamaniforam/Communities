@@ -1,0 +1,17 @@
+:root {
+  --primary: rgb(255, 255, 255);
+  --accent: rgb(41, 136, 245);
+  --mid1: rgb(246, 249, 251);
+  --mid2: rgb(235, 241, 247);
+  --text: rgb(0, 0, 0);
+  --text-muted: rgb(149, 170, 201);
+}
+
+[data-theme="dark"] {
+  --primary: rgb(22, 25, 28);
+  --accent: rgb(39, 135, 245);
+  --mid1: rgb(26, 29, 33);
+  --mid2: rgb(30, 33, 38);
+  --text: rgb(255, 255, 255);
+  --text-muted: rgb(167, 166, 168);
+}

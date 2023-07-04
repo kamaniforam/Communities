@@ -1,0 +1,183 @@
+transition {
+  background-color: var(--mid1) !important;
+  color: var(--text);
+  transition: background 500ms ease-in-out, color 800ms ease-in-out,
+    border 500ms ease-in-out;
+
+  ::placeholder {
+    color: var(--text-muted);
+  }
+
+  :focus {
+    border: 1px solid var(--accent);
+  }
+}
+
+buttontransition {
+  background-color: var(--mid1) !important;
+  cursor: pointer;
+  color: var(--text) !important;
+  transition: background 500ms ease-in-out, color 800ms ease-in-out,
+    border 500ms ease-in-out;
+
+  border: 1px solid var(--mid2) !important;
+  border-radius: 5px !important;
+  :focus {
+    border: 1px solid var(--accent) !important;
+  }
+
+  &:hover {
+    background-color: var(--accent) !important;
+  }
+}
+
+style {
+  border: 1px solid var(--mid2);
+  border-radius: 5px;
+  color: var(--text);
+  font-size: 14px;
+  padding: 10px;
+  width: 95%;
+}
+
+.custom-form {
+  width: 650px;
+  margin: 50px 200px;
+}
+
+.drop {
+  @extend transition;
+  @extend style;
+  width: 80%;
+  margin-left: 10px;
+}
+
+.pricedrop {
+  @extend transition;
+  @extend style;
+  width: 87%;
+  margin: 0px 10px 10px 10px;
+}
+
+.titletag {
+  @extend transition;
+  @extend style;
+  width: 88%;
+  margin-left: 10px;
+}
+
+//location dropdown
+.loc {
+  @extend style;
+  @extend transition;
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 83%;
+}
+
+.predictions {
+  @extend transition;
+  width: 83%;
+  margin-left: 74px;
+  cursor: pointer;
+  border: 1px solid var(--mid2) !important;
+  border-radius: 5px !important;
+}
+
+.prediction {
+  color: var(--text) !important;
+  &:hover {
+    background-color: var(--accent) !important;
+  }
+}
+
+.list-group-item {
+  @extend transition;
+}
+
+//preview location
+.preview {
+  margin-top: 10px;
+  height: 42px;
+  width: 95%;
+  margin-bottom: 10px;
+  @extend buttontransition;
+}
+.location-div {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+}
+
+//textarea
+.messagearea {
+  @extend transition;
+  @extend style;
+  height: 150px;
+}
+
+.posttag {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.max {
+  @extend transition;
+  @extend style;
+  margin-left: 10px;
+  width: 78%;
+  margin-bottom: 10px;
+}
+
+.option {
+  @extend style;
+  @extend transition;
+  margin-top: 10px;
+  width: 95%;
+}
+
+input[type="file"]::file-selector-button {
+  @extend buttontransition;
+  padding: 5px;
+}
+.create {
+  @extend buttontransition;
+  margin: 0px;
+  padding: 16px !important;
+}
+
+.option-btn {
+  margin-top: 10px;
+  height: 42px;
+  width: 95%;
+  display: flex;
+  margin-bottom: 10px;
+  @extend buttontransition;
+}
+
+.postgroup {
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+
+  .postimg {
+    border: 1px solid var(--mid2);
+    border-radius: 5px;
+    color: var(--text);
+    font-size: 14px;
+    padding: 10px;
+    width: 86%;
+    margin-left: 10px;
+    @extend transition;
+  }
+
+  .imgtag {
+    margin: 0px;
+  }
+}
+
+.poll {
+  .polltag {
+    padding: 5px;
+  }
+}

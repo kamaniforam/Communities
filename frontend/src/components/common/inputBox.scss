@@ -1,0 +1,19 @@
+.commonBtn {
+  border: 1px solid var(--mid2);
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 10px;
+  width: 95%;
+  background-color: var(--mid1);
+  color: var(--text);
+  transition: background 500ms ease-in-out, color 800ms ease-in-out,
+    border 500ms ease-in-out;
+
+  ::placeholder {
+    color: var(--text-muted);
+  }
+
+  :focus {
+    border: 1px solid var(--accent);
+  }
+}
